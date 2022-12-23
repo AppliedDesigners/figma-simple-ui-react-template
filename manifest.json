@@ -1,0 +1,21 @@
+{
+  "name": "SimpleParametersTemplate",
+  "id": "1188035056898420649",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "editorType": ["figma", "figjam"],
+  "menu": [
+    {
+      "name": "Text",
+      "command": "Text",
+      "parameters": [
+        {
+          "name": "Text",
+          "key": "text",
+          "allowFreeform": true,
+          "optional": false
+        }
+      ]
+    }
+  ]
+}
