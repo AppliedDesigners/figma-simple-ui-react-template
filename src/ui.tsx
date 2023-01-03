@@ -38,7 +38,7 @@ function App() {
 
 const container = document.getElementById('app');
 /**
- * In TypeScript, the exclamation mark (!) after a variable or property name indicates that
+ * Note: in TypeScript, the exclamation mark (!) after a variable or property name indicates that
  * the variable or property is non-nullable, meaning it is guaranteed to have a value.
  */
 const root = createRoot(container!);
