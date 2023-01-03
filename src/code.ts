@@ -1,36 +1,20 @@
-type Command = "TEXT"
+figma.showUI(__html__, { themeColors: true, height: 300, visible: true } as ShowUIOptions);
 
-const TEXT = "Text";
+figma.ui.onmessage = (msg) => {
+  if (msg.type === "create-rectangles") {
+    const nodes = [];
 
-const COMMANDS = {
-  TEXT
-};
-const DEFAULT_FONT_CONFIG = { family: "Inter", style: "Regular" }
-
-/**
- * Perform action after all parameters have been added
- * - DOCS: https://www.figma.com/plugin-docs/plugin-parameters/#run
- */
-figma.on("run", async ({ command, parameters }: RunEvent) => {
-  const ctxCommand = command as Command;
-
-  if (parameters) {
-    switch (ctxCommand) {
-      case COMMANDS.TEXT:
-        await figma.loadFontAsync(DEFAULT_FONT_CONFIG);
-        const text = figma.createText()
-        text.fontName = DEFAULT_FONT_CONFIG
-        text.characters = parameters.text
-        text.fontSize = 20
-
-        break;
-
-      default:
-        break;
+    for (let i = 0; i < msg.count; i++) {
+      const rect = figma.createRectangle();
+      rect.x = i * 150;
+      rect.fills = [{ type: "SOLID", color: { r: 1, g: 0.5, b: 0 } }];
+      figma.currentPage.appendChild(rect);
+      nodes.push(rect);
     }
+
+    figma.currentPage.selection = nodes;
+    figma.viewport.scrollAndZoomIntoView(nodes);
   }
 
   figma.closePlugin();
-});
-
-export {};
+};
