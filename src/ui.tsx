@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import { createRoot } from 'react-dom/client';
 import "./ui.css";
 
 function App() {
@@ -36,4 +36,10 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+const container = document.getElementById('app');
+/**
+ * In TypeScript, the exclamation mark (!) after a variable or property name indicates that
+ * the variable or property is non-nullable, meaning it is guaranteed to have a value.
+ */
+const root = createRoot(container!);
+root.render(<App />);
