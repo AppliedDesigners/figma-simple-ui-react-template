@@ -1,1 +1,1 @@
-# Advanced Parameters Template
+# Simple React Template

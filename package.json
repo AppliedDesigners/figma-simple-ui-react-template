@@ -1,5 +1,5 @@
 {
-  "name": "simple-ui-template",
+  "name": "simple-ui-react-template",
   "version": "1.0.0",
   "description": "Template plugin for simple Figma react UI",
   "main": "code.js",
